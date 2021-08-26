@@ -2,14 +2,8 @@ import csv
 import ast
 print('Welcome to iPhonebook !')
 # function
-def spe(x):
-    'Will upper the first Charcatar.'
-    a = x.lower()
-    b = list(a)
-    first = b[0]
-    del b[0]
-    b.insert(0 , first.upper())
-    return ''.join(b)
+
+# python has a built-in function for that: capitalize()
 
 def makelis(string):
     res = ast.literal_eval(string)
@@ -40,9 +34,9 @@ while True:
 #Adding
     Choice = input('Adding to book (a) , Deleting (d) , finding (f) ,show all (s):')
     if Choice == 'a' :
-        Add_name = spe(input('Name :'))
+        Add_name = input('Name :').capitalize()
         Add_NO = str(input('Phone number :'))
-        Add_city = spe(input('City :'))
+        Add_city = input('City :').capitalize()
         add(Add_name , Add_NO,Add_city)
         print('Updated!')
         secChoice = (input('Exit? (y/n) ')).lower()
@@ -53,7 +47,7 @@ while True:
             pass
     #Deleting
     elif Choice == 'd' :
-        Del_Target = spe(input('Who should i delete? '))
+        Del_Target = input('Who should i delete? ').capitalize()
         if Del_Target in Book:
             del Book[Del_Target]
         else:
@@ -67,7 +61,7 @@ while True:
             pass
     #Finding
     elif Choice == 'f' :
-        F_Target = spe(input('Name :'))
+        F_Target = input('Name :').capitalize()
         Choice_1 = input('City (c) , Phone number (p) and all (a)')
         #city
         if Choice_1 == 'c':
